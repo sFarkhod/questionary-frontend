@@ -8,7 +8,7 @@ const NotFound: React.FC = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        color: "#fff",
+        color: "#000",
         height: '90vh',
       }}
     >
