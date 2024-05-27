@@ -24,20 +24,20 @@ const resolver: Resolver<LoginFormValues> = async (values) => {
     errors: {
       ...(values.username === ""
         ? {
-            username: {
-              type: "required",
-              message: "Please write your email. This field cannot be empty.",
-            },
-          }
+          username: {
+            type: "required",
+            message: "Please write your email. This field cannot be empty.",
+          },
+        }
         : {}),
       ...(values.password === ""
         ? {
-            password: {
-              type: "required",
-              message:
-                "Please write your password. This field cannot be empty.",
-            },
-          }
+          password: {
+            type: "required",
+            message:
+              "Please write your password. This field cannot be empty.",
+          },
+        }
         : {}),
     },
   };
@@ -46,15 +46,15 @@ const resolver: Resolver<LoginFormValues> = async (values) => {
 function Login() {
   const navigate = useNavigate();
 
-   // for showing and hiding passwords
-   const [showPassword, setShowPassword] = useState(false);
-   const handleKeyVisibility = () => {
-     setShowPassword((prevShowKey) => !prevShowKey);
-   };
+  // for showing and hiding passwords
+  const [showPassword, setShowPassword] = useState(false);
+  const handleKeyVisibility = () => {
+    setShowPassword((prevShowKey) => !prevShowKey);
+  };
 
-   const [LoginResult, { isLoading }] = useLoginUserMutation();
+  const [LoginResult, { isLoading }] = useLoginUserMutation();
 
-   const {
+  const {
     handleSubmit,
     control,
 
@@ -115,9 +115,8 @@ function Login() {
                 <input
                   {...field}
                   type="text"
-                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                    errors.username ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${errors.username ? "border-red-500" : "border-gray-300"
+                    }`}
                 />
                 {errors.username && (
                   <p className="mt-1 text-sm text-red-600">
@@ -127,7 +126,7 @@ function Login() {
               </div>
             )}
           />
-          <div className="relative">
+          <div>
             <Controller
               name="password"
               control={control}
@@ -137,30 +136,31 @@ function Login() {
                   <label className="block text-sm font-medium text-gray-700">
                     Password
                   </label>
-                  <input
-                    {...field}
-                    type={showPassword ? "text" : "password"}
-                    className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                      errors.password ? "border-red-500" : "border-gray-300"
-                    }`}
-                  />
-                  {errors.password && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.password.message}
-                    </p>
-                  )}
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center mt-5">
-                    <button
-                      type="button"
-                      onClick={handleKeyVisibility}
-                      className="focus:outline-none"
-                    >
-                      {showPassword ? (
-                        <EyeIcon className="h-5 w-5 text-gray-500" />
-                      ) : (
-                        <EyeSlashIcon className="h-5 w-5 text-gray-500" />
-                      )}
-                    </button>
+                  <div className="relative">
+                    <input
+                      {...field}
+                      type={showPassword ? "text" : "password"}
+                      className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${errors.password ? "border-red-500" : "border-gray-300"
+                        }`}
+                    />
+                    {errors.password && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.password.message}
+                      </p>
+                    )}
+                    <div className="absolute right-0 pr-3 flex items-center top-2">
+                      <button
+                        type="button"
+                        onClick={handleKeyVisibility}
+                        className="focus:outline-none"
+                      >
+                        {showPassword ? (
+                          <EyeIcon className="h-5 w-5 text-gray-500" />
+                        ) : (
+                          <EyeSlashIcon className="h-5 w-5 text-gray-500" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </div>
               )}
