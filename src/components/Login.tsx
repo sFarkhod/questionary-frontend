@@ -138,36 +138,35 @@ function Login() {
               defaultValue=""
               render={({ field }) => (
                 <div>
-                  {/* <label className="block text-sm font-medium text-gray-700">
-                      Password
-                    </label> */}
+                  <label className="block text-sm font-medium text-gray-700">
+                    Password
+                  </label>
                   <div className="relative">
-                    <input
-                      {...field}
-                      type={showPassword ? "text" : "password"}
-                      className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
-                        errors.password ? "border-b-red-500" : "border-b-gray-300"
-                      }`}
-                      placeholder="Password"
-                    />
-                    {errors.password && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.password.message}
-                      </p>
-                    )}
-                    <div className="absolute right-0 pr-3 flex items-center top-2">
-                      <button
-                        type="button"
-                        onClick={handleKeyVisibility}
-                        className="focus:outline-none"
-                      >
-                        {showPassword ? (
-                          <EyeIcon className="h-5 w-5 text-gray-500" />
-                        ) : (
-                          <EyeSlashIcon className="h-5 w-5 text-gray-500" />
-                        )}
-                      </button>
-                    </div>
+                  <input
+                    {...field}
+                    type={showPassword ? "text" : "password"}
+                    className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                      errors.password ? "border-red-500" : "border-gray-300"
+                    }`}
+                  />
+                  {errors.password && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.password.message}
+                    </p>
+                  )}
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center mt-3">
+                    <button
+                      type="button"
+                      onClick={handleKeyVisibility}
+                      className="focus:outline-none"
+                    >
+                      {showPassword ? (
+                        <EyeIcon className="h-5 w-5 text-gray-500" />
+                      ) : (
+                        <EyeSlashIcon className="h-5 w-5 text-gray-500" />
+                      )}
+                    </button>
+                  </div>
                   </div>
                 </div>
               )}

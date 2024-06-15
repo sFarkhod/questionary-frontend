@@ -5,10 +5,12 @@ import NotFound from "./components/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Questionary from "./components/Questionary";
 import Login from "./components/Login";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Questionary />} />
         <Route

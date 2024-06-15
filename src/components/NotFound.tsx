@@ -1,6 +1,9 @@
 import React from "react";
+import useDocumentTitle from "../useDocumentTitle";
 
 const NotFound: React.FC = () => {
+  useDocumentTitle('Not Found');
+
   return (
     <div
       style={{
