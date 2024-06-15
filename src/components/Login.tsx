@@ -8,7 +8,7 @@ import {
 import { RegisterFormValues } from "./Register";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { setAccess, setRefresh } from "../redux/services/userSlice";
+import { setAccess, setIsAdmin, setRefresh } from "../redux/services/userSlice";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 
 // types
@@ -92,6 +92,7 @@ function Login() {
         console.log(response);
         dispatch(setAccess(response.data.token.access));
         dispatch(setRefresh(response.data.token.refresh));
+        dispatch(setIsAdmin(response.data.is_Admin));
         toast.success("You are successfully logged up");
 
         navigate("/");
