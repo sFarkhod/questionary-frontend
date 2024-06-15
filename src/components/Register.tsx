@@ -25,23 +25,23 @@ const resolver: Resolver<RegisterFormValues> = async (values) => {
     values,
     errors: {
       ...(values.firstname === ""
-      ? {
-          firstname: {
-            type: "required",
-            message:
-              "Please write your username. This field cannot be empty.",
-          },
-        }
-      : {}),
+        ? {
+            firstname: {
+              type: "required",
+              message:
+                "Please write your first name. This field cannot be empty.",
+            },
+          }
+        : {}),
       ...(values.lastname === ""
-      ? {
-          lastname: {
-            type: "required",
-            message:
-              "Please write your username. This field cannot be empty.",
-          },
-        }
-      : {}),
+        ? {
+            lastname: {
+              type: "required",
+              message:
+                "Please write your last name. This field cannot be empty.",
+            },
+          }
+        : {}),
       ...(values.username === ""
         ? {
             username: {
@@ -131,24 +131,25 @@ function Register() {
 
   return (
     <>
-      <div>
-        <h2>Create User</h2>
-        <div>
+      <div className="h-screen w-auto text-center flex items-center justify-center">
+        <div className="bg-white rounded px-8 pt-6 pb-8 mb-4 max-w-screen-lg lg:w-5/12 sm:w-8/12 w-screen shadow-[7px_10px_4px_rgba(99,102,241,0.5)] drop-shadow-[-5px_-3px_8px_rgba(0,0,0,0.1)] flex flex-col gap-5">
+          <h2 className="text-2xl text-indigo-500 font-bold">Create User</h2>
           <Controller
             name="firstname"
             control={control}
             defaultValue=""
             render={({ field }) => (
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                {/* <label className="block text-sm font-medium text-gray-700">
                   Firstname
-                </label>
+                </label> */}
                 <input
                   {...field}
                   type="text"
-                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                    errors.firstname ? "border-red-500" : "border-gray-300"
+                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
+                    errors.firstname ? "border-b-red-500" : "border-b-gray-300"
                   }`}
+                  placeholder="First name"
                 />
                 {errors.firstname && (
                   <p className="mt-1 text-sm text-red-600">
@@ -165,15 +166,16 @@ function Register() {
             defaultValue=""
             render={({ field }) => (
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                {/* <label className="block text-sm font-medium text-gray-700">
                   Lastname
-                </label>
+                </label> */}
                 <input
                   {...field}
                   type="text"
-                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                    errors.lastname ? "border-red-500" : "border-gray-300"
+                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
+                    errors.lastname ? "border-b-red-500" : "border-b-gray-300"
                   }`}
+                  placeholder="Last name"
                 />
                 {errors.lastname && (
                   <p className="mt-1 text-sm text-red-600">
@@ -190,15 +192,16 @@ function Register() {
             defaultValue=""
             render={({ field }) => (
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                {/* <label className="block text-sm font-medium text-gray-700">
                   Username
-                </label>
+                </label> */}
                 <input
                   {...field}
                   type="text"
-                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                    errors.username ? "border-red-500" : "border-gray-300"
+                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
+                    errors.username ? "border-b-red-500" : "border-b-gray-300"
                   }`}
+                  placeholder="Username"
                 />
                 {errors.username && (
                   <p className="mt-1 text-sm text-red-600">
@@ -215,15 +218,16 @@ function Register() {
             defaultValue=""
             render={({ field }) => (
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                {/* <label className="block text-sm font-medium text-gray-700">
                   Email
-                </label>
+                </label> */}
                 <input
                   {...field}
                   type="email"
-                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                    errors.email ? "border-red-500" : "border-gray-300"
+                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
+                    errors.email ? "border-b-red-500" : "border-b-gray-300"
                   }`}
+                  placeholder="Email"
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600">
@@ -234,29 +238,30 @@ function Register() {
             )}
           />
 
-          <div className="relative">
-            <Controller
-              name="password"
-              control={control}
-              defaultValue=""
-              render={({ field }) => (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <div>
+                {/* <label className="block text-sm font-medium text-gray-700">
                     Password
-                  </label>
+                  </label> */}
+                <div className="relative">
                   <input
                     {...field}
                     type={showPassword ? "text" : "password"}
-                    className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
-                      errors.password ? "border-red-500" : "border-gray-300"
+                    className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
+                      errors.password ? "border-b-red-500" : "border-b-gray-300"
                     }`}
+                    placeholder="Password"
                   />
                   {errors.password && (
                     <p className="mt-1 text-sm text-red-600">
                       {errors.password.message}
                     </p>
                   )}
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                  <div className="absolute right-0 pr-3 flex items-center top-2">
                     <button
                       type="button"
                       onClick={handleKeyVisibility}
@@ -270,9 +275,9 @@ function Register() {
                     </button>
                   </div>
                 </div>
-              )}
-            />
-          </div>
+              </div>
+            )}
+          />
 
           <button
             type="button"
