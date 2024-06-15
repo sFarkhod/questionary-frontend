@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
-import { Controller, Resolver, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useLoginUserMutation, useRegisterUserMutation } from '../redux/services/registerApi';
-import { RegisterFormValues } from './Register';
-import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-import { setAccess, setRefresh } from '../redux/services/userSlice';
+import React, { useState } from "react";
+import { Controller, Resolver, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import {
+  useLoginUserMutation,
+  useRegisterUserMutation,
+} from "../redux/services/registerApi";
+import { RegisterFormValues } from "./Register";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { setAccess, setRefresh } from "../redux/services/userSlice";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 
 // types
@@ -24,20 +27,20 @@ const resolver: Resolver<LoginFormValues> = async (values) => {
     errors: {
       ...(values.username === ""
         ? {
-          username: {
-            type: "required",
-            message: "Please write your email. This field cannot be empty.",
-          },
-        }
+            username: {
+              type: "required",
+              message: "Please write your email. This field cannot be empty.",
+            },
+          }
         : {}),
       ...(values.password === ""
         ? {
-          password: {
-            type: "required",
-            message:
-              "Please write your password. This field cannot be empty.",
-          },
-        }
+            password: {
+              type: "required",
+              message:
+                "Please write your password. This field cannot be empty.",
+            },
+          }
         : {}),
     },
   };
@@ -86,7 +89,7 @@ function Login() {
           toast.error(errorMessages.join("\n"));
         }
       } else {
-        console.log(response)
+        console.log(response);
         dispatch(setAccess(response.data.token.access));
         dispatch(setRefresh(response.data.token.refresh));
         toast.success("You are successfully logged up");
@@ -96,27 +99,29 @@ function Login() {
     } catch (err) {
       toast.error("There is some small issues please try again later");
     }
-  }
+  };
 
   return (
     <>
-      <div>
-        <h2>Login</h2>
-        <div>
+      <div className="h-screen w-auto text-center flex items-center justify-center">
+        <div className="bg-white rounded px-8 pt-6 pb-8 mb-4 max-w-screen-lg lg:w-5/12 sm:w-8/12 w-screen shadow-[7px_10px_4px_rgba(99,102,241,0.5)] drop-shadow-[-5px_-3px_8px_rgba(0,0,0,0.1)] flex flex-col gap-5">
+          <h2 className="text-2xl text-indigo-500 font-bold">Login</h2>
           <Controller
             name="username"
             control={control}
             defaultValue=""
             render={({ field }) => (
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Username
-                </label>
+                {/* <label className="block text-sm font-medium text-gray-700">
+                    Username
+                  </label> */}
                 <input
                   {...field}
                   type="text"
-                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${errors.username ? "border-red-500" : "border-gray-300"
-                    }`}
+                  className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
+                    errors.username ? "border-b-red-500" : "border-b-gray-300"
+                  }`}
+                  placeholder="Username"
                 />
                 {errors.username && (
                   <p className="mt-1 text-sm text-red-600">
@@ -133,15 +138,17 @@ function Login() {
               defaultValue=""
               render={({ field }) => (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Password
-                  </label>
+                  {/* <label className="block text-sm font-medium text-gray-700">
+                      Password
+                    </label> */}
                   <div className="relative">
                     <input
                       {...field}
                       type={showPassword ? "text" : "password"}
-                      className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${errors.password ? "border-red-500" : "border-gray-300"
-                        }`}
+                      className={`block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-b-indigo-500 sm:text-sm ${
+                        errors.password ? "border-b-red-500" : "border-b-gray-300"
+                      }`}
+                      placeholder="Password"
                     />
                     {errors.password && (
                       <p className="mt-1 text-sm text-red-600">
@@ -180,4 +187,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;
