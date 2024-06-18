@@ -16,13 +16,14 @@ const Navbar: React.FC = () => {
 
 
   const handleClick = () => {
-    navigate("/");
+    document.location.href = "/"
   }
 
   return (
-    <nav className="navbar">
-        <div className="container">
-            <h1 className="navbar__title" onClick={handleClick}>TTPU Questionary</h1>
+    <nav className="navbar shadow-md max-w-full">
+        <div className="container p-2">
+            {/* <h1 className="navbar__title" onClick={handleClick}>TTPU Questionary</h1> */}
+            <img src="/src/assets/turin_1.jpg" onClick={handleClick} className="w-80 cursor-pointer" alt="" />
         </div>
     </nav>
   );

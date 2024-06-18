@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import NotFound from './NotFound';
 
 interface ProtectedComponentProps {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ const ProtectedRoute: React.FC<ProtectedComponentProps> = ({ children }) => {
   return access && refresh && isAdmin == true ? (
     <>{children}</>
   ) : (
-    <Navigate to="/" replace />
+    <NotFound />
   );
 }
 
