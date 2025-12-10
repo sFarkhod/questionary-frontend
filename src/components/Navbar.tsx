@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <nav className="navbar shadow-md max-w-full">
+    <nav className="sticky top-0 navbar w-full bg-white shadow-md z-50">
         <div className="container p-2">
             {/* <h1 className="navbar__title" onClick={handleClick}>TTPU Questionary</h1> */}
             <img src="/src/assets/turin_1.jpg" onClick={handleClick} className="w-80 cursor-pointer" alt="" />

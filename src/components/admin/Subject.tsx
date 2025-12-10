@@ -1,4 +1,6 @@
 import React from "react";
+import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
 
 function Subject() {
   const rows = [];
@@ -23,7 +25,27 @@ function Subject() {
   }
   return (
     <>
-      <div className="container mx-auto w-8/12 mt-24 mb-10">
+      <Sidebar>
+        <Menu
+          menuItemStyles={{
+            button: {
+              // the active class will be added automatically by react router
+              // so we can use it to style the active menu item
+              [`&.active`]: {
+                backgroundColor: "#13395e",
+                color: "#b6c8d9",
+              },
+            },
+          }}
+        >
+          <MenuItem component={<Link to="/documentation" />}>
+            Documentation
+          </MenuItem>
+          <MenuItem component={<Link to="/calendar" />}> Calendar</MenuItem>
+          <MenuItem component={<Link to="/e-commerce" />}> E-commerce</MenuItem>
+        </Menu>
+      </Sidebar>
+      {/* <div className="container mx-auto w-8/12 mt-24 mb-10">
         <div className="mb-5 space-x-5">
           <span>Add Subject: </span>
           <input
@@ -50,7 +72,7 @@ function Subject() {
           </thead>
           <tbody>{rows}</tbody>
         </table>
-      </div>
+      </div> */}
     </>
   );
 }

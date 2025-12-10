@@ -93,7 +93,7 @@ function Questionary() {
         </div>
       </div>
       <div className="w-full">
-        <table className="container mx-auto table-auto border-collapse border border-slate-950 lg:w-9/12 md:w-7/12 sm:w-5/12">
+        <table className="container mx-auto table-auto border-collapse border border-slate-950 lg:w-9/12 md:w-7/12 sm:w-5/12 mb-10">
           <thead>
             <tr>
               <th className="border border-slate-950 w-6/12 py-1 px-3">Questions</th>

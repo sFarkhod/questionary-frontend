@@ -118,8 +118,6 @@ function Register() {
           toast.error(errorMessages.join("\n"));
         }
       } else {
-        // dispatch(setAccess(data.access));
-        // dispatch(setRefresh(data.refresh));
         toast.success("You are successfully signed up");
 
         navigate("/login");

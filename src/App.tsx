@@ -28,14 +28,14 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="admin">
-          <Route
+          {/* <Route
             path="sidebar"
             element={
               <ProtectedRoute>
                 <Sidebar />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route
             path="teacher"
             element={

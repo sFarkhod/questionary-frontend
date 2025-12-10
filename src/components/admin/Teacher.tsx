@@ -23,7 +23,7 @@ function Teacher() {
   }
   return (
     <>
-      <div className="container mx-auto w-8/12 mt-24 mb-10">
+      <div className="container mx-auto w-8/12 mt-24 mb-96">
         <div className="mb-5 space-x-5">
           <span>Add Teacher: </span>
           <input
